@@ -1,15 +1,16 @@
-@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700";
+@import "variables.scss";
+
 body {
-    font-family: 'Open+Sans', sans-serif;
-    background: #fafafa;
+    @include v(font-family, body);
+    @include v(background-color, light);
 }
 
 p {
-    font-family: 'Open+Sans', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
+    @include v(font-family, body);
+    @include v(font-size, body);
+    @include v(font-weight, light);
+    @include v(line-height, tall);
+    @include v(color, gray-dark);
 }
 
 a,
@@ -58,8 +59,8 @@ a:focus {
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #7386D5;
-    color: #fff;
+    @include v(background-color, primary);
+    @include v(color, light);
     transition: all 0.3s;
 }
 
@@ -69,7 +70,7 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    @include v(background-color, primary);
 }
 
 #sidebar ul.components {
@@ -78,25 +79,25 @@ a:focus {
 }
 
 #sidebar ul p {
-    color: #fff;
-    padding: 10px;
+    @include v(color, light);
+    @include v(font-size, body);
 }
 
 #sidebar ul li a {
     padding: 10px;
-    font-size: 1.1em;
+    @include v(font-size, body);
     display: block;
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    @include v(color, primary);
+    @include v(background-color, light);
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    @include v(color, light);
+    @include v(background-color, gray-dark);
 }
 
 a[data-toggle="collapse"] {
@@ -114,7 +115,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    @include v(background-color, primary);
 }
 
 ul.CTAs {
@@ -123,21 +124,10 @@ ul.CTAs {
 
 ul.CTAs a {
     text-align: center;
-    font-size: 0.9em !important;
+    @include v(font-size, body);
     display: block;
     border-radius: 5px;
     margin-bottom: 5px;
-}
-
-a.download {
-    background: #fff;
-    color: #7386D5;
-}
-
-a.article,
-a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
 }
 
 /* ---------------------------------------------------

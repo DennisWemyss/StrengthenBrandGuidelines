@@ -4,6 +4,17 @@
 // Import all Bootstrap_ext here
 @import './scss/bootstrap_ext/button';
 
-// here go's the rest
-@import './scss/style.scss';
+// Variables
+@import './scss/variables.scss';
 
+// Sidebar Template
+@import './scss/sidebar-template.scss';
+
+// Layout Styles
+@import './scss/layout.scss';
+
+// Sections of Styleguide / Brand Guideline
+// ----------------------------------------
+
+// Color Section
+@import './scss/color-section.scss';
