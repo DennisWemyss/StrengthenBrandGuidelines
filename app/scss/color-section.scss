@@ -1,1 +1,54 @@
 @import "variables.scss";
+*, *:before, *:after{
+    box-sizing: border-box;
+  }
+// Swatches styling
+.colors{
+  
+    // This goes through the colors in our $color map in variables.scss and creates the swatches( bg, hex, rgba, hsla)
+    @each $color-name, $color-value in $color {
+        $rgbacolor: rgba-str($color-value);
+        $hslacolor: hsla-str($color-value);
+        &--#{$color-name}{
+          .colors__swatch{
+            background-color: $color-value;
+          }
+          .colors__label{
+            &:before{
+              content: '#{$color-value}\A #{$rgbacolor}\A #{$hslacolor}';
+            }
+          }
+        }
+      }
+    padding: 2em 0;
+    overflow: hidden;
+    list-style: none;
+    text-align: center;
+
+  &__item{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 1em 1em 0;
+    @include v(background-color, light);
+    padding: 5px;
+    border: solid 1px map-get($color, gray-light);
+  }
+
+  &__swatch{
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    margin: 0 auto;
+    border: 1px solid map-get($color, gray-light);
+  }
+
+  &__label{
+    display: block;
+    @include v(color, primary);
+    display: block;
+    padding: 5px;
+    white-space: pre;
+    text-align: left;
+  }
+}
