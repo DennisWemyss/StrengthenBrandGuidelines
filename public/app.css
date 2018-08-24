@@ -4976,9 +4976,6 @@ ul.CTAs a {
   color: red;
   color: var(--color-text); }
 
-*, *:before, *:after {
-  box-sizing: border-box; }
-
 .colors {
   padding: 2em 0;
   overflow: hidden;
@@ -4987,91 +4984,91 @@ ul.CTAs a {
   .colors--blue .colors__swatch {
     background-color: #007bff; }
   .colors--blue .colors__label:before {
-    content: "#007bff\argba-str(#007bff)\ahsla-str(#007bff)"; }
+    content: "blue\a#007bff\argb(0, 123, 255)\ahsl(211, 100%, 50%)"; }
   .colors--indigo .colors__swatch {
     background-color: #6610f2; }
   .colors--indigo .colors__label:before {
-    content: "#6610f2\argba-str(#6610f2)\ahsla-str(#6610f2)"; }
+    content: "indigo\a#6610f2\argb(102, 16, 242)\ahsl(263, 90%, 51%)"; }
   .colors--purple .colors__swatch {
     background-color: #6f42c1; }
   .colors--purple .colors__label:before {
-    content: "#6f42c1\argba-str(#6f42c1)\ahsla-str(#6f42c1)"; }
+    content: "purple\a#6f42c1\argb(111, 66, 193)\ahsl(261, 51%, 51%)"; }
   .colors--pink .colors__swatch {
     background-color: #e83e8c; }
   .colors--pink .colors__label:before {
-    content: "#e83e8c\argba-str(#e83e8c)\ahsla-str(#e83e8c)"; }
+    content: "pink\a#e83e8c\argb(232, 62, 140)\ahsl(332, 79%, 58%)"; }
   .colors--red .colors__swatch {
     background-color: #dc3545; }
   .colors--red .colors__label:before {
-    content: "#dc3545\argba-str(#dc3545)\ahsla-str(#dc3545)"; }
+    content: "red\a#dc3545\argb(220, 53, 69)\ahsl(354, 70%, 54%)"; }
   .colors--orange .colors__swatch {
     background-color: #fd7e14; }
   .colors--orange .colors__label:before {
-    content: "#fd7e14\argba-str(#fd7e14)\ahsla-str(#fd7e14)"; }
+    content: "orange\a#fd7e14\argb(253, 126, 20)\ahsl(27, 98%, 54%)"; }
   .colors--yellow .colors__swatch {
     background-color: #ffc107; }
   .colors--yellow .colors__label:before {
-    content: "#ffc107\argba-str(#ffc107)\ahsla-str(#ffc107)"; }
+    content: "yellow\a#ffc107\argb(255, 193, 7)\ahsl(45, 100%, 51%)"; }
   .colors--green .colors__swatch {
     background-color: #28a745; }
   .colors--green .colors__label:before {
-    content: "#28a745\argba-str(#28a745)\ahsla-str(#28a745)"; }
+    content: "green\a#28a745\argb(40, 167, 69)\ahsl(134, 61%, 41%)"; }
   .colors--teal .colors__swatch {
     background-color: #20c997; }
   .colors--teal .colors__label:before {
-    content: "#20c997\argba-str(#20c997)\ahsla-str(#20c997)"; }
+    content: "teal\a#20c997\argb(32, 201, 151)\ahsl(162, 73%, 46%)"; }
   .colors--cyan .colors__swatch {
     background-color: #17a2b8; }
   .colors--cyan .colors__label:before {
-    content: "#17a2b8\argba-str(#17a2b8)\ahsla-str(#17a2b8)"; }
+    content: "cyan\a#17a2b8\argb(23, 162, 184)\ahsl(188, 78%, 41%)"; }
   .colors--white .colors__swatch {
     background-color: #ffffff; }
   .colors--white .colors__label:before {
-    content: "#ffffff\argba-str(#ffffff)\ahsla-str(#ffffff)"; }
+    content: "white\a#ffffff\argb(255, 255, 255)\ahsl(0, 0%, 100%)"; }
   .colors--gray-light .colors__swatch {
     background-color: #dddddd; }
   .colors--gray-light .colors__label:before {
-    content: "#dddddd\argba-str(#dddddd)\ahsla-str(#dddddd)"; }
+    content: "gray-light\a#dddddd\argb(221, 221, 221)\ahsl(0, 0%, 87%)"; }
   .colors--gray .colors__swatch {
     background-color: #6c757d; }
   .colors--gray .colors__label:before {
-    content: "#6c757d\argba-str(#6c757d)\ahsla-str(#6c757d)"; }
+    content: "gray\a#6c757d\argb(108, 117, 125)\ahsl(208, 7%, 46%)"; }
   .colors--gray-dark .colors__swatch {
     background-color: #343a40; }
   .colors--gray-dark .colors__label:before {
-    content: "#343a40\argba-str(#343a40)\ahsla-str(#343a40)"; }
+    content: "gray-dark\a#343a40\argb(52, 58, 64)\ahsl(210, 10%, 23%)"; }
   .colors--primary .colors__swatch {
     background-color: #505f70; }
   .colors--primary .colors__label:before {
-    content: "#505f70\argba-str(#505f70)\ahsla-str(#505f70)"; }
+    content: "primary\a#505f70\argb(80, 95, 112)\ahsl(212, 17%, 38%)"; }
   .colors--secondary .colors__swatch {
     background-color: #6c757d; }
   .colors--secondary .colors__label:before {
-    content: "#6c757d\argba-str(#6c757d)\ahsla-str(#6c757d)"; }
+    content: "secondary\a#6c757d\argb(108, 117, 125)\ahsl(208, 7%, 46%)"; }
   .colors--success .colors__swatch {
     background-color: #28a745; }
   .colors--success .colors__label:before {
-    content: "#28a745\argba-str(#28a745)\ahsla-str(#28a745)"; }
+    content: "success\a#28a745\argb(40, 167, 69)\ahsl(134, 61%, 41%)"; }
   .colors--info .colors__swatch {
     background-color: #479ce1; }
   .colors--info .colors__label:before {
-    content: "#479ce1\argba-str(#479ce1)\ahsla-str(#479ce1)"; }
+    content: "info\a#479ce1\argb(71, 156, 225)\ahsl(207, 72%, 58%)"; }
   .colors--warning .colors__swatch {
     background-color: #ffc107; }
   .colors--warning .colors__label:before {
-    content: "#ffc107\argba-str(#ffc107)\ahsla-str(#ffc107)"; }
+    content: "warning\a#ffc107\argb(255, 193, 7)\ahsl(45, 100%, 51%)"; }
   .colors--danger .colors__swatch {
     background-color: #dc3545; }
   .colors--danger .colors__label:before {
-    content: "#dc3545\argba-str(#dc3545)\ahsla-str(#dc3545)"; }
+    content: "danger\a#dc3545\argb(220, 53, 69)\ahsl(354, 70%, 54%)"; }
   .colors--light .colors__swatch {
     background-color: #f8f9fa; }
   .colors--light .colors__label:before {
-    content: "#f8f9fa\argba-str(#f8f9fa)\ahsla-str(#f8f9fa)"; }
+    content: "light\a#f8f9fa\argb(248, 249, 250)\ahsl(210, 17%, 98%)"; }
   .colors--dark .colors__swatch {
     background-color: #343a40; }
   .colors--dark .colors__label:before {
-    content: "#343a40\argba-str(#343a40)\ahsla-str(#343a40)"; }
+    content: "dark\a#343a40\argb(52, 58, 64)\ahsl(210, 10%, 23%)"; }
   .colors__item {
     display: inline-block;
     vertical-align: middle;
@@ -5083,6 +5080,7 @@ ul.CTAs a {
   .colors__swatch {
     display: block;
     width: 100%;
+    min-width: 165px;
     height: 0;
     padding-bottom: 100%;
     margin: 0 auto;
@@ -5095,6 +5093,7 @@ ul.CTAs a {
     padding: 5px;
     white-space: pre;
     text-align: left; }
+
 
 @import "https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i";
 :root {
@@ -5149,9 +5148,6 @@ ul.CTAs a {
   color: red;
   color: var(--color-text); }
 
-*, *:before, *:after {
-  box-sizing: border-box; }
-
 .colors {
   padding: 2em 0;
   overflow: hidden;
@@ -5160,91 +5156,91 @@ ul.CTAs a {
   .colors--blue .colors__swatch {
     background-color: #007bff; }
   .colors--blue .colors__label:before {
-    content: "#007bff\argba-str(#007bff)\ahsla-str(#007bff)"; }
+    content: "blue\a#007bff\argb(0, 123, 255)\ahsl(211, 100%, 50%)"; }
   .colors--indigo .colors__swatch {
     background-color: #6610f2; }
   .colors--indigo .colors__label:before {
-    content: "#6610f2\argba-str(#6610f2)\ahsla-str(#6610f2)"; }
+    content: "indigo\a#6610f2\argb(102, 16, 242)\ahsl(263, 90%, 51%)"; }
   .colors--purple .colors__swatch {
     background-color: #6f42c1; }
   .colors--purple .colors__label:before {
-    content: "#6f42c1\argba-str(#6f42c1)\ahsla-str(#6f42c1)"; }
+    content: "purple\a#6f42c1\argb(111, 66, 193)\ahsl(261, 51%, 51%)"; }
   .colors--pink .colors__swatch {
     background-color: #e83e8c; }
   .colors--pink .colors__label:before {
-    content: "#e83e8c\argba-str(#e83e8c)\ahsla-str(#e83e8c)"; }
+    content: "pink\a#e83e8c\argb(232, 62, 140)\ahsl(332, 79%, 58%)"; }
   .colors--red .colors__swatch {
     background-color: #dc3545; }
   .colors--red .colors__label:before {
-    content: "#dc3545\argba-str(#dc3545)\ahsla-str(#dc3545)"; }
+    content: "red\a#dc3545\argb(220, 53, 69)\ahsl(354, 70%, 54%)"; }
   .colors--orange .colors__swatch {
     background-color: #fd7e14; }
   .colors--orange .colors__label:before {
-    content: "#fd7e14\argba-str(#fd7e14)\ahsla-str(#fd7e14)"; }
+    content: "orange\a#fd7e14\argb(253, 126, 20)\ahsl(27, 98%, 54%)"; }
   .colors--yellow .colors__swatch {
     background-color: #ffc107; }
   .colors--yellow .colors__label:before {
-    content: "#ffc107\argba-str(#ffc107)\ahsla-str(#ffc107)"; }
+    content: "yellow\a#ffc107\argb(255, 193, 7)\ahsl(45, 100%, 51%)"; }
   .colors--green .colors__swatch {
     background-color: #28a745; }
   .colors--green .colors__label:before {
-    content: "#28a745\argba-str(#28a745)\ahsla-str(#28a745)"; }
+    content: "green\a#28a745\argb(40, 167, 69)\ahsl(134, 61%, 41%)"; }
   .colors--teal .colors__swatch {
     background-color: #20c997; }
   .colors--teal .colors__label:before {
-    content: "#20c997\argba-str(#20c997)\ahsla-str(#20c997)"; }
+    content: "teal\a#20c997\argb(32, 201, 151)\ahsl(162, 73%, 46%)"; }
   .colors--cyan .colors__swatch {
     background-color: #17a2b8; }
   .colors--cyan .colors__label:before {
-    content: "#17a2b8\argba-str(#17a2b8)\ahsla-str(#17a2b8)"; }
+    content: "cyan\a#17a2b8\argb(23, 162, 184)\ahsl(188, 78%, 41%)"; }
   .colors--white .colors__swatch {
     background-color: #ffffff; }
   .colors--white .colors__label:before {
-    content: "#ffffff\argba-str(#ffffff)\ahsla-str(#ffffff)"; }
+    content: "white\a#ffffff\argb(255, 255, 255)\ahsl(0, 0%, 100%)"; }
   .colors--gray-light .colors__swatch {
     background-color: #dddddd; }
   .colors--gray-light .colors__label:before {
-    content: "#dddddd\argba-str(#dddddd)\ahsla-str(#dddddd)"; }
+    content: "gray-light\a#dddddd\argb(221, 221, 221)\ahsl(0, 0%, 87%)"; }
   .colors--gray .colors__swatch {
     background-color: #6c757d; }
   .colors--gray .colors__label:before {
-    content: "#6c757d\argba-str(#6c757d)\ahsla-str(#6c757d)"; }
+    content: "gray\a#6c757d\argb(108, 117, 125)\ahsl(208, 7%, 46%)"; }
   .colors--gray-dark .colors__swatch {
     background-color: #343a40; }
   .colors--gray-dark .colors__label:before {
-    content: "#343a40\argba-str(#343a40)\ahsla-str(#343a40)"; }
+    content: "gray-dark\a#343a40\argb(52, 58, 64)\ahsl(210, 10%, 23%)"; }
   .colors--primary .colors__swatch {
     background-color: #505f70; }
   .colors--primary .colors__label:before {
-    content: "#505f70\argba-str(#505f70)\ahsla-str(#505f70)"; }
+    content: "primary\a#505f70\argb(80, 95, 112)\ahsl(212, 17%, 38%)"; }
   .colors--secondary .colors__swatch {
     background-color: #6c757d; }
   .colors--secondary .colors__label:before {
-    content: "#6c757d\argba-str(#6c757d)\ahsla-str(#6c757d)"; }
+    content: "secondary\a#6c757d\argb(108, 117, 125)\ahsl(208, 7%, 46%)"; }
   .colors--success .colors__swatch {
     background-color: #28a745; }
   .colors--success .colors__label:before {
-    content: "#28a745\argba-str(#28a745)\ahsla-str(#28a745)"; }
+    content: "success\a#28a745\argb(40, 167, 69)\ahsl(134, 61%, 41%)"; }
   .colors--info .colors__swatch {
     background-color: #479ce1; }
   .colors--info .colors__label:before {
-    content: "#479ce1\argba-str(#479ce1)\ahsla-str(#479ce1)"; }
+    content: "info\a#479ce1\argb(71, 156, 225)\ahsl(207, 72%, 58%)"; }
   .colors--warning .colors__swatch {
     background-color: #ffc107; }
   .colors--warning .colors__label:before {
-    content: "#ffc107\argba-str(#ffc107)\ahsla-str(#ffc107)"; }
+    content: "warning\a#ffc107\argb(255, 193, 7)\ahsl(45, 100%, 51%)"; }
   .colors--danger .colors__swatch {
     background-color: #dc3545; }
   .colors--danger .colors__label:before {
-    content: "#dc3545\argba-str(#dc3545)\ahsla-str(#dc3545)"; }
+    content: "danger\a#dc3545\argb(220, 53, 69)\ahsl(354, 70%, 54%)"; }
   .colors--light .colors__swatch {
     background-color: #f8f9fa; }
   .colors--light .colors__label:before {
-    content: "#f8f9fa\argba-str(#f8f9fa)\ahsla-str(#f8f9fa)"; }
+    content: "light\a#f8f9fa\argb(248, 249, 250)\ahsl(210, 17%, 98%)"; }
   .colors--dark .colors__swatch {
     background-color: #343a40; }
   .colors--dark .colors__label:before {
-    content: "#343a40\argba-str(#343a40)\ahsla-str(#343a40)"; }
+    content: "dark\a#343a40\argb(52, 58, 64)\ahsl(210, 10%, 23%)"; }
   .colors__item {
     display: inline-block;
     vertical-align: middle;
@@ -5256,6 +5252,7 @@ ul.CTAs a {
   .colors__swatch {
     display: block;
     width: 100%;
+    min-width: 165px;
     height: 0;
     padding-bottom: 100%;
     margin: 0 auto;
@@ -5268,6 +5265,7 @@ ul.CTAs a {
     padding: 5px;
     white-space: pre;
     text-align: left; }
+
 
 
 @import "https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i";
@@ -5481,6 +5479,7 @@ ul.CTAs a {
   #sidebarCollapse span {
     display: none; } }
 
+
 @import "https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i";
 :root {
   --color-blue: #007bff;
@@ -5533,6 +5532,7 @@ ul.CTAs a {
   background-color: var(--color-background);
   color: red;
   color: var(--color-text); }
+
 
 
 /*# sourceMappingURL=app.css.map*/

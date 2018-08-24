@@ -130,11 +130,13 @@ $props: (
           // each in the map
           @each $var-n, $val-n in $val {
             // do the definition
-            #{--$var-map-name}-#{$var}-#{$var-n}: $val-n;
+                $prop: --#{$var-map-name}-#{$var}-#{$var-n};
+                #{$prop}: $val-n;
           }
         } @else {
-          // do the definition
-          #{--$var-map-name}-#{$var}: $val;
+            // do the definition
+            $prop: --#{$var-map-name}-#{$var};
+            #{$prop}: $val;
         }
       }
     }

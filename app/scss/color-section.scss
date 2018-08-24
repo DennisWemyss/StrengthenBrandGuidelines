@@ -1,7 +1,16 @@
 @import "variables.scss";
-*, *:before, *:after{
-    box-sizing: border-box;
+
+// Functions to take color and output the hsla/rgb values to text
+@function hsla-str($color) {
+    /* Sass outputs the hue value with 'deg' next to it (example 120deg), and we don't want that. */
+    $hue: (hue($color) / 1deg);
+    /* Sass outputs crazy decimals sometimes, so let's round them. */
+    @return unquote("hsl(#{round($hue)}, #{round(saturation($color))}, #{round(lightness($color))})");
   }
+  @function rgba-str($color) {
+    @return unquote("rgb(#{red($color)}, #{green($color)}, #{blue($color)})");
+  }
+
 // Swatches styling
 .colors{
   
@@ -15,7 +24,7 @@
           }
           .colors__label{
             &:before{
-              content: '#{$color-value}\A #{$rgbacolor}\A #{$hslacolor}';
+              content: '#{$color-name}\A#{$color-value}\A #{$rgbacolor}\A #{$hslacolor}';
             }
           }
         }
@@ -37,6 +46,7 @@
   &__swatch{
     display: block;
     width: 100%;
+    min-width:165px;
     height: 0;
     padding-bottom: 100%;
     margin: 0 auto;

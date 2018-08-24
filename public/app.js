@@ -163,9 +163,10 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('jQuery works');
   }
 }); //globals: $, jQuery and Tether, see config
+
 });
 
-require.alias("process/browser.js", "process");process = require('process');require.register("___globals___", function(exports, require, module) {
+;require.alias("process/browser.js", "process");process = require('process');require.register("___globals___", function(exports, require, module) {
   
 
 // Auto-loaded modules from config.npm.globals.

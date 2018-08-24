@@ -21,6 +21,15 @@ exports.plugins = {
       includePaths: ['./node_modules/bootstrap/scss/'],
       precision: 8
     }
+  },
+  pug: {
+    doctype: 'html',
+    basedir: 'app',                 // or wherever Brunch config says
+    staticBasedir: 'app/assets',    // basedir for static compilation (see bellow)
+    staticPretty: true,             // "pretty" for files in staticBasedir
+    inlineRuntimeFunctions: false,  // will use the global `pug` variable
+    compileDebug: true,             // except for brunch `optimize` mode (production)
+    sourceMap: true                 // ...if Brunch sourceMaps option is enabled
   }
 };
 

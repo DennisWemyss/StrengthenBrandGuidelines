@@ -149,196 +149,6 @@ var __makeRelativeRequire = function(require, mappings, pref) {
   }
 };
 
-require.register("process/browser.js", function(exports, require, module) {
-  require = __makeRelativeRequire(require, {}, "process");
-  (function() {
-    // shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-  })();
-});
-
 require.register("bootstrap/dist/js/bootstrap.js", function(exports, require, module) {
   require = __makeRelativeRequire(require, {}, "bootstrap");
   (function() {
@@ -17133,6 +16943,196 @@ return Popper;
 //# sourceMappingURL=popper.js.map
   })();
 });
+
+require.register("process/browser.js", function(exports, require, module) {
+  require = __makeRelativeRequire(require, {}, "process");
+  (function() {
+    // shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+  })();
+});
 require.alias("bootstrap/dist/js/bootstrap.js", "bootstrap");
 require.alias("jquery/dist/jquery.js", "jquery");
 require.alias("popper.js/dist/umd/popper.js", "popper.js");
@@ -17239,5 +17239,274 @@ window.jQuery = require("jquery");
   connect();
 })();
 /* jshint ignore:end */
-;
+
+;'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*
+  Pug runtime module.
+  Automatically generated by pugjs-brunch @ 8/24/2018, 1:35:42 AM.
+*/
+(function (exports) {
+  'use strict';
+
+  var pug_has_own_property = Object.prototype.hasOwnProperty;
+
+  /**
+   * Merge two attribute objects giving precedence
+   * to values in object `b`. Classes are special-cased
+   * allowing for arrays and merging/joining appropriately
+   * resulting in a string.
+   *
+   * @param {Object} a
+   * @param {Object} b
+   * @return {Object} a
+   * @api private
+   */
+
+  exports.merge = pug_merge;
+  function pug_merge(a, b) {
+    if (arguments.length === 1) {
+      var attrs = a[0];
+      for (var i = 1; i < a.length; i++) {
+        attrs = pug_merge(attrs, a[i]);
+      }
+      return attrs;
+    }
+
+    for (var key in b) {
+      if (key === 'class') {
+        var valA = a[key] || [];
+        a[key] = (Array.isArray(valA) ? valA : [valA]).concat(b[key] || []);
+      } else if (key === 'style') {
+        var valA = pug_style(a[key]);
+        valA = valA && valA[valA.length - 1] !== ';' ? valA + ';' : valA;
+        var valB = pug_style(b[key]);
+        valB = valB && valB[valB.length - 1] !== ';' ? valB + ';' : valB;
+        a[key] = valA + valB;
+      } else {
+        a[key] = b[key];
+      }
+    }
+
+    return a;
+  };
+
+  /**
+   * Process array, object, or string as a string of classes delimited by a space.
+   *
+   * If `val` is an array, all members of it and its subarrays are counted as
+   * classes. If `escaping` is an array, then whether or not the item in `val` is
+   * escaped depends on the corresponding item in `escaping`. If `escaping` is
+   * not an array, no escaping is done.
+   *
+   * If `val` is an object, all the keys whose value is truthy are counted as
+   * classes. No escaping is done.
+   *
+   * If `val` is a string, it is counted as a class. No escaping is done.
+   *
+   * @param {(Array.<string>|Object.<string, boolean>|string)} val
+   * @param {?Array.<string>} escaping
+   * @return {String}
+   */
+  exports.classes = pug_classes;
+  function pug_classes_array(val, escaping) {
+    var classString = '',
+        className,
+        padding = '',
+        escapeEnabled = Array.isArray(escaping);
+    for (var i = 0; i < val.length; i++) {
+      className = pug_classes(val[i]);
+      if (!className) continue;
+      escapeEnabled && escaping[i] && (className = pug_escape(className));
+      classString = classString + padding + className;
+      padding = ' ';
+    }
+    return classString;
+  }
+  function pug_classes_object(val) {
+    var classString = '',
+        padding = '';
+    for (var key in val) {
+      if (key && val[key] && pug_has_own_property.call(val, key)) {
+        classString = classString + padding + key;
+        padding = ' ';
+      }
+    }
+    return classString;
+  }
+  function pug_classes(val, escaping) {
+    if (Array.isArray(val)) {
+      return pug_classes_array(val, escaping);
+    } else if (val && (typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object') {
+      return pug_classes_object(val);
+    } else {
+      return val || '';
+    }
+  }
+
+  /**
+   * Convert object or string to a string of CSS styles delimited by a semicolon.
+   *
+   * @param {(Object.<string, string>|string)} val
+   * @return {String}
+   */
+
+  exports.style = pug_style;
+  function pug_style(val) {
+    if (!val) return '';
+    if ((typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object') {
+      var out = '';
+      for (var style in val) {
+        /* istanbul ignore else */
+        if (pug_has_own_property.call(val, style)) {
+          out = out + style + ':' + val[style] + ';';
+        }
+      }
+      return out;
+    } else {
+      return val + '';
+    }
+  };
+
+  /**
+   * Render the given attribute.
+   *
+   * @param {String} key
+   * @param {String} val
+   * @param {Boolean} escaped
+   * @param {Boolean} terse
+   * @return {String}
+   */
+  exports.attr = pug_attr;
+  function pug_attr(key, val, escaped, terse) {
+    if (val === false || val == null || !val && (key === 'class' || key === 'style')) {
+      return '';
+    }
+    if (val === true) {
+      return ' ' + (terse ? key : key + '="' + key + '"');
+    }
+    if (typeof val.toJSON === 'function') {
+      val = val.toJSON();
+    }
+    if (typeof val !== 'string') {
+      val = JSON.stringify(val);
+      if (!escaped && val.indexOf('"') !== -1) {
+        return ' ' + key + '=\'' + val.replace(/'/g, '&#39;') + '\'';
+      }
+    }
+    if (escaped) val = pug_escape(val);
+    return ' ' + key + '="' + val + '"';
+  };
+
+  /**
+   * Render the given attributes object.
+   *
+   * @param {Object} obj
+   * @param {Object} terse whether to use HTML5 terse boolean attributes
+   * @return {String}
+   */
+  exports.attrs = pug_attrs;
+  function pug_attrs(obj, terse) {
+    var attrs = '';
+
+    for (var key in obj) {
+      if (pug_has_own_property.call(obj, key)) {
+        var val = obj[key];
+
+        if ('class' === key) {
+          val = pug_classes(val);
+          attrs = pug_attr(key, val, false, terse) + attrs;
+          continue;
+        }
+        if ('style' === key) {
+          val = pug_style(val);
+        }
+        attrs += pug_attr(key, val, false, terse);
+      }
+    }
+
+    return attrs;
+  };
+
+  /**
+   * Escape the given string of `html`.
+   *
+   * @param {String} html
+   * @return {String}
+   * @api private
+   */
+
+  var pug_match_html = /["&<>]/;
+  exports.escape = pug_escape;
+  function pug_escape(_html) {
+    var html = '' + _html;
+    var regexResult = pug_match_html.exec(html);
+    if (!regexResult) return _html;
+
+    var result = '';
+    var i, lastIndex, escape;
+    for (i = regexResult.index, lastIndex = 0; i < html.length; i++) {
+      switch (html.charCodeAt(i)) {
+        case 34:
+          escape = '&quot;';break;
+        case 38:
+          escape = '&amp;';break;
+        case 60:
+          escape = '&lt;';break;
+        case 62:
+          escape = '&gt;';break;
+        default:
+          continue;
+      }
+      if (lastIndex !== i) result += html.substring(lastIndex, i);
+      lastIndex = i + 1;
+      result += escape;
+    }
+    if (lastIndex !== i) return result + html.substring(lastIndex, i);else return result;
+  };
+
+  /**
+   * Re-throw the given `err` in context to the
+   * the pug in `filename` at the given `lineno`.
+   *
+   * @param {Error} err
+   * @param {String} filename
+   * @param {String} lineno
+   * @param {String} str original source
+   * @api private
+   */
+
+  exports.rethrow = pug_rethrow;
+  function pug_rethrow(err, filename, lineno, str) {
+    if (!(err instanceof Error)) throw err;
+    if ((typeof window != 'undefined' || !filename) && !str) {
+      err.message += ' on line ' + lineno;
+      throw err;
+    }
+    try {
+      str = str || require('fs').readFileSync(filename, 'utf8');
+    } catch (ex) {
+      pug_rethrow(err, null, lineno);
+    }
+    var context = 3,
+        lines = str.split('\n'),
+        start = Math.max(lineno - context, 0),
+        end = Math.min(lines.length, lineno + context);
+
+    // Error context
+    var context = lines.slice(start, end).map(function (line, i) {
+      var curr = i + start + 1;
+      return (curr == lineno ? '  > ' : '    ') + curr + '| ' + line;
+    }).join('\n');
+
+    // Alter exception message
+    err.path = filename;
+    err.message = (filename || 'Pug') + ':' + lineno + '\n' + context + '\n\n' + err.message;
+    throw err;
+  };
+})((typeof pug === 'undefined' ? 'undefined' : _typeof(pug)) == 'object' && pug || (typeof module === 'undefined' ? 'undefined' : _typeof(module)) == 'object' && module.exports || ((undefined || global).pug = {}));
+
+
 //# sourceMappingURL=vendor.js.map
