@@ -4835,8 +4835,8 @@ a:focus {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background-color: #505f70;
-  background-color: var(--color-primary); }
+  background-color: #dddddd;
+  background-color: var(--color-gray-light); }
 
 #sidebar ul.components {
   padding: 20px 0;
@@ -4897,7 +4897,7 @@ ul.CTAs a {
 .logo {
   position: relative;
   width: 100%;
-  margin-top: 20px; }
+  margin-top: 5px; }
 
 /* ---------------------------------------------------
     CONTENT STYLE
@@ -5395,8 +5395,8 @@ a:focus {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background-color: #505f70;
-  background-color: var(--color-primary); }
+  background-color: #dddddd;
+  background-color: var(--color-gray-light); }
 
 #sidebar ul.components {
   padding: 20px 0;
@@ -5457,7 +5457,7 @@ ul.CTAs a {
 .logo {
   position: relative;
   width: 100%;
-  margin-top: 20px; }
+  margin-top: 5px; }
 
 /* ---------------------------------------------------
     CONTENT STYLE

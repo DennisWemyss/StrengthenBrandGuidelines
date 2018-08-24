@@ -1,4 +1,4 @@
-.row.mb-4
+.row.mb-4#typography-row
     .col-12
         .card
             h1.card-header Typography
@@ -12,11 +12,23 @@
         .line
 
         h1 Heading 1 - Sample Heading
+        code
+            | font-size:2.4em;
         h2 Heading 2 - Sample Heading
+        code
+            | font-size:2em;
         h3 Heading 3 - Sample Heading
+        code
+            | font-size:1.6em;
         h4 Heading 4 - Sample Heading
+        code
+            | font-size:1.4em;
         h5 Heading 5 - Sample Heading
+        code
+            | font-size:1.2em;
         h6 Heading 6 - Sample Heading
+        code
+            | font-size:1.1em;
 
         p 
         | Sample of paragraphy text with 
@@ -24,35 +36,21 @@
         | and 
         em italics 
         | .
-
-        h3 Typograhpy Styles
+        code
+            | font-size:1em;
+            | 
+.row.mb-4
+    .col-12
+        h3 Weights and line heights
         pre
-            code.
-                size: (
-                body: 1em,
-                h1: 2.4em, 
-                h2: 2em,
-                h3: 1.6em, 
-                h4: 1.4em,
-                ),
-                leading: (
-                    body: 1.6,
-                    head: 1.2,
-                ),
-                family: (
-                    body: (Lato,sans-serif),
-                ),
-                weight: (
-                    light: 300,
-                    regular: 400,
-                    bold: 700,
-                ),
-                style: (
-                    italic: italic,
-                    normal: normal
-                ),
-                line-height: (
-                    auto: auto,
-                    short: 1.1,
-                    normal: 1.3,
-                    tall: 1.7,
+            code
+                | 
+                | font-family: Lato,sans-serif;
+                | 
+                | // Body
+                | font-weight: 300;
+                | line-height: 1.3;
+                | 
+                | // Heading
+                | font-weight: 700;
+                | line-height: 1.7;

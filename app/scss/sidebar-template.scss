@@ -70,7 +70,7 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    @include v(background-color, primary);
+    @include v(background-color, gray-light);
 }
 
 #sidebar ul.components {
@@ -133,7 +133,7 @@ ul.CTAs a {
 .logo {
     position: relative;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 /* ---------------------------------------------------
