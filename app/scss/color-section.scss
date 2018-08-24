@@ -24,7 +24,7 @@
           }
           .colors__label{
             &:before{
-              content: '#{$color-name}\A#{$color-value}\A #{$rgbacolor}\A #{$hslacolor}';
+              content: '#{$color-name}\A--color-#{$color-name}\A#{$color-value}\A #{$rgbacolor}\A #{$hslacolor}';
             }
           }
         }

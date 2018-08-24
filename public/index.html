@@ -19,26 +19,21 @@
     <div class="wrapper">
       <!-- Sidebar-->
       <nav id="sidebar">
-        <div class="sidebar-header">
-          <h3>Bootstrap Sidebar</h3>
-        </div>
+        <div class="sidebar-header"><img class="logo" src="images/logo.png"></div>
         <ul class="list-unstyled components">
-          <p>Dummy Heading</p>
-          <li class="active"><a class="dropdown-toggle" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-              <li><a href="#lastitem">Home 1</a></li>
-              <li><a href="#">Home 2</a></li>
-              <li><a href="#">Home 3</a></li>
-            </ul>
-          </li>
+          <li class="active"><a class="dropdown-toggle" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a></li>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li><a href="#lastitem">Home 1</a></li>
+            <li><a href="#">Home 2</a></li>
+            <li><a href="#">Home 3</a></li>
+          </ul>
           <li><a href="#">About</a></li>
-          <li><a class="dropdown-toggle" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-              <li><a href="#">Page 1</a></li>
-              <li><a href="#">Page 2</a></li>
-              <li><a href="#">Page 3</a></li>
-            </ul>
-          </li>
+          <li><a class="dropdown-toggle" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a></li>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+          </ul>
           <li><a href="#">Portfolio</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
@@ -49,13 +44,15 @@
           <button class="btn btn-info" id="sidebarCollapse" type="button"><i class="fas fa-bars"></i></button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
         </nav>
+        <!-- Include all sections here!-->
         <div class="row mb-4">
-          <div class="col-12"></div>
-          <div class="card">
-            <h5 class="card-header">Color</h5>
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text">Strengthen uses strategic colors to give users a fluid, easy to view experience. Colors should provide good contrast, clarity, and ease of viewing.</p>
+          <div class="col-12">
+            <div class="card">
+              <h1 class="card-header">Color</h1>
+              <div class="card-body">
+                <h5 class="card-title">Strengthen uses strategic colors to give users a fluid, easy to view experience.</h5>
+                <p class="card-text"> Colors should provide good contrast, clarity, and ease of viewing. Colors can be used to give users a heirarchy of importance in actions. Use colors to direct users to action, show importance <span class="text-danger">(red alert text)</span>, and provide easy communication.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -85,6 +82,74 @@
               <li class="colors__item colors--warning"><span class="colors__swatch"></span><code class="colors__label"></code></li>
               <li class="colors__item colors--danger"><span class="colors__swatch"></span><code class="colors__label"></code></li>
             </ul>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="card">
+              <h5 class="card-header">Usage</h5>
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">Colors should be used with the above values. </p>
+                <p>
+                   Tints and shades are allowed within reason (~25% max change).</p>
+                <p>
+                   Colors should be used consistently within groups.  (See styleguide components for further details).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="card">
+              <h1 class="card-header">Typography</h1>
+              <div class="card-body">
+                <h5 class="card-title">Strengthen uses typography to help show heirarchy of information.</h5>
+                <p class="card-text"> Our typography will champion legibility & readability, provide a clear focus for users, and be aesthetically pleasing across all devices.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-12">
+            <h3>Typography System</h3>
+            <div class="line"></div>
+            <h1>Heading 1 - Sample Heading</h1>
+            <h2>Heading 2 - Sample Heading</h2>
+            <h3>Heading 3 - Sample Heading</h3>
+            <h4>Heading 4 - Sample Heading</h4>
+            <h5>Heading 5 - Sample Heading</h5>
+            <h6>Heading 6 - Sample Heading</h6>
+            <p> </p>Sample of paragraphy text with <strong>bold </strong>and <em>italics </em>.
+            <h3>Typograhpy Styles</h3>
+            <pre><code>size: (
+body: 1em,
+h1: 2.4em, 
+h2: 2em,
+h3: 1.6em, 
+h4: 1.4em,
+),
+leading: (
+    body: 1.6,
+    head: 1.2,
+),
+family: (
+    body: (Lato,sans-serif),
+),
+weight: (
+    light: 300,
+    regular: 400,
+    bold: 700,
+),
+style: (
+    italic: italic,
+    normal: normal
+),
+line-height: (
+    auto: auto,
+    short: 1.1,
+    normal: 1.3,
+    tall: 1.7,</code></pre>
           </div>
         </div>
       </div>

@@ -1,0 +1,29 @@
+// Sidebar
+nav#sidebar
+    .sidebar-header
+        img.logo(src='images/logo.png')
+    ul.list-unstyled.components
+        li.active
+            a.dropdown-toggle(href='#homeSubmenu', data-toggle='collapse', aria-expanded='false') Home
+        ul#homeSubmenu.collapse.list-unstyled
+            li
+                a(href='#lastitem') Home 1
+            li
+                a(href='#') Home 2
+            li
+                a(href='#') Home 3
+        li
+            a(href='#') About
+        li
+            a.dropdown-toggle(href='#pageSubmenu', data-toggle='collapse', aria-expanded='false') Pages
+        ul#pageSubmenu.collapse.list-unstyled
+            li
+                a(href='#') Page 1
+            li
+                a(href='#') Page 2
+            li
+                a(href='#') Page 3
+        li
+            a(href='#') Portfolio
+        li
+            a(href='#') Contact
