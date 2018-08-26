@@ -10,6 +10,7 @@
     .col-12
         h3 Typography System
         .line
+    .col-6
 
         h1 Heading 1 - Sample Heading
         code
@@ -39,9 +40,7 @@
         code
             | font-size:1em;
             | 
-.row.mb-4
-    .col-12
-        h3 Weights and line heights
+    .col-6
         pre
             code
                 | 
@@ -54,3 +53,20 @@
                 | // Heading
                 | font-weight: 700;
                 | line-height: 1.7;
+
+.row.mb-4
+    .col-12
+        .card
+            h5.card-header Usage
+            .card-body
+                h5.card-title
+                p.card-text
+                    | Typography should be used with the above system taken into consideration.
+                p 
+                    | Following our typography system will provide an easy to read experience for the user.
+                p 
+                    | For special elements, such as graphics & other non-component elements, follow the brand guidelines instructions on type design.
+                p  
+                    | See 
+                    code variables.scss
+                    |  for specific documentation and mixin usage.
